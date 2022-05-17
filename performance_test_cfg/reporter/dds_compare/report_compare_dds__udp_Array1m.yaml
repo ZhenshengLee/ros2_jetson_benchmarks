@@ -1,0 +1,163 @@
+---
+datasets:
+  dataset_fastdds:
+    name: fastdds
+    theme:
+      color: '#bf0000'
+    experiments:
+      - com_mean:
+          - FastDDS
+        transport:
+          - UDP
+        msg:
+          - Array1m
+        pubs: 1
+        subs: 1
+        rate: 100
+        reliability: RELIABLE
+        durability: VOLATILE
+        history: KEEP_LAST
+        history_depth: 16
+  dataset_iceoryx:
+    name: iceoryx
+    theme:
+      color: '#000000'
+    experiments:
+      - com_mean:
+          - iceoryx
+        transport:
+          - UDP
+        msg:
+          - Array1m
+        pubs: 1
+        subs: 1
+        rate: 100
+        reliability: RELIABLE
+        durability: VOLATILE
+        history: KEEP_LAST
+        history_depth: 16
+  dataset_ecal_proto:
+    name: ecal_proto
+    theme:
+      color: '#0000ff'
+    experiments:
+      - com_mean:
+          - ECAL_PROTO
+        transport:
+          - UDP
+        msg:
+          - Array1m
+        pubs: 1
+        subs: 1
+        rate: 100
+        reliability: RELIABLE
+        durability: VOLATILE
+        history: KEEP_LAST
+        history_depth: 16
+  dataset_ecal_raw:
+    name: ecal_raw
+    theme:
+      color: '#00ff00'
+    experiments:
+      - com_mean:
+          - ECAL_RAW
+        transport:
+          - UDP
+        msg:
+          - Array1m
+        pubs: 1
+        subs: 1
+        rate: 100
+        reliability: RELIABLE
+        durability: VOLATILE
+        history: KEEP_LAST
+        history_depth: 16
+reports:
+  report_compare_dds__udp_Array1m:
+    report_title: DDS comparison. UDP(SHM) transport. Array1m.
+    template_name: ./single.html
+    figures:
+      - name: latency_mean_ms
+        title: Mean latency over Time
+        x_axis_label: Time (seconds)
+        y_axis_label: Latency (ms)
+        x_range: T_experiment
+        y_range: latency_mean_ms
+        size:
+          width: 900
+          height: 540
+        datasets:
+          - dataset_fastdds
+          - dataset_iceoryx
+          - dataset_ecal_proto
+          - dataset_ecal_raw
+      - name: latency_max_ms
+        title: Maximum latency over Time
+        x_axis_label: Time (seconds)
+        y_axis_label: Latency (ms)
+        x_range: T_experiment
+        y_range: latency_max_ms
+        size:
+          width: 900
+          height: 540
+        datasets:
+          - dataset_fastdds
+          - dataset_iceoryx
+          - dataset_ecal_proto
+          - dataset_ecal_raw
+      - name: latency_min_ms
+        title: Minimum latency over Time
+        x_axis_label: Time (seconds)
+        y_axis_label: Latency (ms)
+        x_range: T_experiment
+        y_range: latency_min_ms
+        size:
+          width: 900
+          height: 540
+        datasets:
+          - dataset_fastdds
+          - dataset_iceoryx
+          - dataset_ecal_proto
+          - dataset_ecal_raw
+      - name: latency_variance_ms
+        title: Latency variance over Time
+        x_axis_label: Time (seconds)
+        y_axis_label: Latency (ms)
+        x_range: T_experiment
+        y_range: latency_variance_ms
+        size:
+          width: 900
+          height: 540
+        datasets:
+          - dataset_fastdds
+          - dataset_iceoryx
+          - dataset_ecal_proto
+          - dataset_ecal_raw
+      - name: cpu_usage
+        title: CPU Usage (%)
+        x_axis_label: Time (seconds)
+        y_axis_label: CPU Usage (%)
+        x_range: T_experiment
+        y_range: cpu_usage_percent
+        size:
+          width: 900
+          height: 540
+        datasets:
+          - dataset_fastdds
+          - dataset_iceoryx
+          - dataset_ecal_proto
+          - dataset_ecal_raw
+      - name: num_samples_lost
+        title: Number of samples lost
+        x_axis_label: Time (seconds)
+        y_axis_label: Number of samples lost
+        x_range: T_experiment
+        y_range: num_samples_lost
+        size:
+          width: 900
+          height: 540
+        datasets:
+          - dataset_fastdds
+          - dataset_iceoryx
+          - dataset_ecal_proto
+          - dataset_ecal_raw
