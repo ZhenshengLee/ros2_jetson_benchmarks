@@ -1,0 +1,27 @@
+---
+experiments:
+  -
+    com_mean:
+      - FastDDS
+      - iceoryx
+      - ECAL_PROTO
+      - ECAL_RAW
+    transport:
+      - UDP
+      - ZERO_COPY
+    msg:
+      - Array1k
+      - Array60k
+      - Array256k
+      - Array1m
+      - Array2m
+      - Array4m
+    pubs: 1
+    subs: 1
+    rate: 100
+    reliability: RELIABLE
+    durability: VOLATILE
+    history: KEEP_LAST
+    history_depth: 16
+    max_runtime: 30
+    ignore_seconds: 5

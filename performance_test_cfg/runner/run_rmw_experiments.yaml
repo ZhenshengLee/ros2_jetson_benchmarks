@@ -1,0 +1,21 @@
+---
+experiments:
+  -
+    com_mean:
+      - rclcpp-single-threaded-executor
+    transport:
+      - UDP
+      - ZERO_COPY
+    msg:
+      - Array1k
+      - Array60k
+      - Array2m
+    pubs: 1
+    subs: 1
+    rate: 100
+    reliability: RELIABLE
+    durability: VOLATILE
+    history: KEEP_LAST
+    history_depth: 16
+    max_runtime: 30
+    ignore_seconds: 5
