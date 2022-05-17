@@ -1,0 +1,28 @@
+name: docs
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Update index
+        run: |
+          sudo apt-get update
+          sudo apt-get install curl git -y
+          curl https://raw.githubusercontent.com/carlossvg/apindex-v3/master/sudo-install.sh | bash
+          apindex benchmark_results
+
+      - name: Move docs to root # Workaround
+        run: mv docs/* .
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: .
