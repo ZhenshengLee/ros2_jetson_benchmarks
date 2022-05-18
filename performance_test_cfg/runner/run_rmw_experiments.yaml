@@ -5,11 +5,15 @@ experiments:
       - rclcpp-single-threaded-executor
     transport:
       - UDP
-      - ZERO_COPY
+      - INTRA
+      # - ZERO_COPY
     msg:
       - Array1k
       - Array60k
+      - Array256k
+      - Array1m
       - Array2m
+      - Array4m
     pubs: 1
     subs: 1
     rate: 100

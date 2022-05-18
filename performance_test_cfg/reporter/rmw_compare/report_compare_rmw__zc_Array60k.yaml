@@ -1,0 +1,158 @@
+---
+datasets:
+  dataset_rmw_fastrtps_cpp:
+    name: rmw_fastrtps_cpp
+    theme:
+      color: '#bf0000'
+    test_name: rmw_fastrtps_cpp
+    experiments:
+      - com_mean:
+          - rclcpp-single-threaded-executor
+        transport:
+          - ZERO_COPY
+        msg:
+          - Array60k
+        pubs: 1
+        subs: 1
+        rate: 100
+        reliability: RELIABLE
+        durability: VOLATILE
+        history: KEEP_LAST
+        history_depth: 16
+
+  dataset_rmw_cyclonedds_cpp:
+    name: rmw_cyclonedds_cpp
+    theme:
+      color: '#0000bf'
+    test_name: rmw_cyclonedds_cpp
+    experiments:
+      - com_mean:
+          - rclcpp-single-threaded-executor
+        transport:
+          - ZERO_COPY
+        msg:
+          - Array60k
+        pubs: 1
+        subs: 1
+        rate: 100
+        reliability: RELIABLE
+        durability: VOLATILE
+        history: KEEP_LAST
+        history_depth: 16
+
+  dataset_rmw_ecal_dynamic_cpp:
+    name: rmw_ecal_dynamic_cpp
+    theme:
+      color: '#000000'
+    test_name: rmw_ecal_dynamic_cpp
+    experiments:
+      - com_mean:
+          - rclcpp-single-threaded-executor
+        transport:
+          - ZERO_COPY
+        msg:
+          - Array60k
+        pubs: 1
+        subs: 1
+        rate: 100
+        reliability: RELIABLE
+        durability: VOLATILE
+        history: KEEP_LAST
+        history_depth: 16
+
+reports:
+  report_compare_rmw__zc_Array60k:
+    report_title: RMW comparison. zc. Array60k. Single Threaded Executor.
+    template_name: ./single.html
+    figures:
+      - name: latency_mean_ms
+        title: Mean latency over Time
+        x_axis_label: Time (seconds)
+        y_axis_label: Latency (ms)
+        x_range: T_experiment
+        y_range: latency_mean_ms
+        size:
+          width: 900
+          height: 540
+        datasets:
+          - dataset_rmw_fastrtps_cpp
+          - dataset_rmw_cyclonedds_cpp
+          - dataset_rmw_ecal_dynamic_cpp
+      - name: latency_max_ms
+        title: Maximum latency over Time
+        x_axis_label: Time (seconds)
+        y_axis_label: Latency (ms)
+        x_range: T_experiment
+        y_range: latency_max_ms
+        size:
+          width: 900
+          height: 540
+        datasets:
+          - dataset_rmw_fastrtps_cpp
+          - dataset_rmw_cyclonedds_cpp
+          - dataset_rmw_ecal_dynamic_cpp
+      - name: latency_min_ms
+        title: Minimum latency over Time
+        x_axis_label: Time (seconds)
+        y_axis_label: Latency (ms)
+        x_range: T_experiment
+        y_range: latency_min_ms
+        size:
+          width: 900
+          height: 540
+        datasets:
+          - dataset_rmw_fastrtps_cpp
+          - dataset_rmw_cyclonedds_cpp
+          - dataset_rmw_ecal_dynamic_cpp
+      - name: latency_variance_ms
+        title: Latency variance over Time
+        x_axis_label: Time (seconds)
+        y_axis_label: Latency (ms)
+        x_range: T_experiment
+        y_range: latency_variance_ms
+        size:
+          width: 900
+          height: 540
+        datasets:
+          - dataset_rmw_fastrtps_cpp
+          - dataset_rmw_cyclonedds_cpp
+          - dataset_rmw_ecal_dynamic_cpp
+      - name: cpu_usage
+        title: CPU Usage (%)
+        x_axis_label: Time (seconds)
+        y_axis_label: CPU Usage (%)
+        x_range: T_experiment
+        y_range: cpu_usage_percent
+        size:
+          width: 900
+          height: 540
+        datasets:
+          - dataset_rmw_fastrtps_cpp
+          - dataset_rmw_cyclonedds_cpp
+          - dataset_rmw_ecal_dynamic_cpp
+      - name: memory_usage
+        title: Memory Usage (MB)
+        x_axis_label: Time (seconds)
+        y_axis_label: Memory usage (MB)
+        x_range: T_experiment
+        y_range: ru_maxrss
+        size:
+          width: 900
+          height: 540
+        datasets:
+          - dataset_rmw_fastrtps_cpp
+          - dataset_rmw_cyclonedds_cpp
+          - dataset_rmw_ecal_dynamic_cpp
+      - name: num_samples_lost
+        title: Number of samples lost
+        x_axis_label: Time (seconds)
+        y_axis_label: Number of samples lost
+        x_range: T_experiment
+        y_range: num_samples_lost
+        size:
+          width: 900
+          height: 540
+        datasets:
+          - dataset_rmw_fastrtps_cpp
+          - dataset_rmw_cyclonedds_cpp
+          - dataset_rmw_ecal_dynamic_cpp
