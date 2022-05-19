@@ -18,6 +18,7 @@ ros2 run performance_report reporter --log-dir $log_dir/rmw_compare  --configs .
 
 ros2 run performance_report reporter --log-dir $log_dir/rmw_compare --configs ../reporter/rmw_compare/report_compare_rmw__udp_*
 ros2 run performance_report reporter --log-dir $log_dir/rmw_compare --configs ../reporter/rmw_compare/report_compare_rmw__intra_*
+ros2 run performance_report reporter --log-dir $log_dir/rmw_compare --configs ../reporter/rmw_compare/report_compare_rmw__zc_*
 
 # Remove temp files
 rm -r $log_dir/rmw_compare/rmw_*
