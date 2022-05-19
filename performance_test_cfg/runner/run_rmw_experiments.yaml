@@ -6,7 +6,7 @@ experiments:
     transport:
       - UDP
       - INTRA
-      # - ZERO_COPY
+      - ZERO_COPY
     msg:
       - Array1k
       - Array60k

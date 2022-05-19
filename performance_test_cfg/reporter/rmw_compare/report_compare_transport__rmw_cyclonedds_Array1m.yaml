@@ -74,7 +74,7 @@ reports:
         datasets:
           - dataset_udp
           - dataset_intra
-          # - dataset_zc
+          - dataset_zc
       - name: latency_max_ms
         title: Maximum latency over Time
         x_axis_label: Time (seconds)
@@ -87,7 +87,7 @@ reports:
         datasets:
           - dataset_udp
           - dataset_intra
-          # - dataset_zc
+          - dataset_zc
       - name: latency_min_ms
         title: Minimum latency over Time
         x_axis_label: Time (seconds)
@@ -100,7 +100,7 @@ reports:
         datasets:
           - dataset_udp
           - dataset_intra
-          # - dataset_zc
+          - dataset_zc
       - name: latency_variance_ms
         title: Latency variance over Time
         x_axis_label: Time (seconds)
@@ -113,7 +113,7 @@ reports:
         datasets:
           - dataset_udp
           - dataset_intra
-          # - dataset_zc
+          - dataset_zc
       - name: cpu_usage
         title: CPU Usage (%)
         x_axis_label: Time (seconds)
@@ -126,7 +126,7 @@ reports:
         datasets:
           - dataset_udp
           - dataset_intra
-          # - dataset_zc
+          - dataset_zc
       - name: memory_usage
         title: Memory Usage (MB)
         x_axis_label: Time (seconds)
@@ -139,7 +139,7 @@ reports:
         datasets:
           - dataset_udp
           - dataset_intra
-          # - dataset_zc
+          - dataset_zc
       - name: num_samples_lost
         title: Number of samples lost
         x_axis_label: Time (seconds)
@@ -152,4 +152,4 @@ reports:
         datasets:
           - dataset_udp
           - dataset_intra
-          # - dataset_zc
+          - dataset_zc

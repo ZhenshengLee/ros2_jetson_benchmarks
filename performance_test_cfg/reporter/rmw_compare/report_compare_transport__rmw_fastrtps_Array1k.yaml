@@ -4,14 +4,14 @@ datasets:
     name: udp
     theme:
       color: '#bf0000'
-    test_name: rmw_ecal_dynamic_cpp
+    test_name: rmw_fastrtps_cpp
     experiments:
       - com_mean:
           - rclcpp-single-threaded-executor
         transport:
           - UDP
         msg:
-          - Array1m
+          - Array1k
         pubs: 1
         subs: 1
         rate: 100
@@ -23,14 +23,14 @@ datasets:
     name: intra
     theme:
       color: '#0000bf'
-    test_name: rmw_ecal_dynamic_cpp
+    test_name: rmw_fastrtps_cpp
     experiments:
       - com_mean:
           - rclcpp-single-threaded-executor
         transport:
           - INTRA
         msg:
-          - Array1m
+          - Array1k
         pubs: 1
         subs: 1
         rate: 100
@@ -42,14 +42,14 @@ datasets:
     name: zc
     theme:
       color: '#000000'
-    test_name: rmw_ecal_dynamic_cpp
+    test_name: rmw_fastrtps_cpp
     experiments:
       - com_mean:
           - rclcpp-single-threaded-executor
         transport:
           - ZERO_COPY
         msg:
-          - Array1m
+          - Array1k
         pubs: 1
         subs: 1
         rate: 100
@@ -58,8 +58,8 @@ datasets:
         history: KEEP_LAST
         history_depth: 16
 reports:
-  report_compare_transport__rmw_ecal_Array1m:
-    report_title: Transport comparison. rmw_ecal. Array1m Single Threaded Executor.
+  report_compare_transport__rmw_fastrtps_Array1k:
+    report_title: Transport comparison. rmw_fastrtps. Array1k Single Threaded Executor.
     template_name: ./single.html
     figures:
       - name: latency_mean_ms
