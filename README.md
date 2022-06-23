@@ -1,6 +1,5 @@
 # ros2_jetson_benchmarks
 
-
 ## amd64
 
 ### os performance tunning
@@ -71,10 +70,27 @@ qos: besteffort + keep all + volatile + historydepth=1000
 | 5.10.0  | rosidl | none     | shm(opt) | ecal     | 0.009   | 0.016    | 0.038     | 0.166   | 0.32    | 0.68    |
 | 5.10.0  | rosidl | none     | zc(opt)  | ecal     | 0.008   | 0.010    | 0.017     | 0.043   | 0.074   | 0.146   |
 
-#### a automatic test report
-
-see [test report](./benchmark_results/galactic/pc_ros2_galactic_v5.13.0-41-generic_amd64/)
-
 ## jetson-xavier
 
-todo
+### os tunning
+
+```sh
+# jetson
+sudo jetson_clocks
+```
+
+```sh
+sudo cpufreq-set -g performance
+sudo sysctl -w net.ipv4.udp_mem="10240087380016777216"
+sudo sysctl -w net.core.netdev_max_backlog="30000"
+sudo sysctl -w net.core.rmem_max="67108864"
+sudo sysctl -w net.core.wmem_max="67108864"
+sudo sysctl -w net.core.rmem_default="67108864"
+sudo sysctl -w net.core.wmem_default="67108864"
+```
+
+## automatic test report
+
+see [test report for amd64](./benchmark_results/galactic/pc_ros2_galactic_v5.13.0-41-generic_amd64/)
+
+see [test report for jetson-xavier](./benchmark_results/galactic/xavier_r32.5.1_ros2_galactic_4.9.201-tegra_aarch64/)
